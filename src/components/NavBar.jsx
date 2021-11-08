@@ -3,12 +3,13 @@ import Logo from '../images/simplerLogo.png'
 
 const NavBar = ({
     handleDashboard,
+    setIsTrader
 }) => {
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="fixed">
                 <Toolbar spacing={5}> 
-                    <div className="nav-button" id="logo"> <img src={Logo} alt="Simpler Trading" style={{ height: '2rem'}}/> </div>
+                    <div className="nav-button" id="logo" onClick={() => setIsTrader(false)}> <img src={Logo} alt="Simpler Trading" style={{ height: '2rem'}}/> </div>
                     <Button color="inherit"> MEMBERSHIPS </Button>
                     <Button color="inherit"> STORE </Button>
                     <Button color="inherit"> TRADERS </Button>

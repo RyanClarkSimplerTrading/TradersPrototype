@@ -2,30 +2,30 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { Grid } from '@mui/material';
 import React, { useState } from 'react';
 import traderMock from '../mock/traders';
 import DashBoard from './DashBoard';
 import NavBar from './NavBar';
-import TraderCard from './TraderCard';
+import Trader from './Traders/Trader';
+import Traders from './Traders/Traders';
 
 const  App = () => {
   const [membership, setMembership ] = useState('none')
   const [traders, setTraders] = useState(traderMock);
   const [isDashboardOpen, setIsDashboardOpen ] = useState(false);
+  const [isTrader, setIsTrader] = useState(false);
+  const [selectedTrader, setSelectedTrader] = useState({});
   const primaryBG = membership === 'none' ? '#FFFFFF' : '#F4F4F4';
   const secondaryBG = membership === 'none' ? '#F4F4F4' : '#FFFFFF';
 
   const handleDashboard = () => { setIsDashboardOpen(!isDashboardOpen)}
 
-  return (<div style={{ backgroundColor: primaryBG }}>
-      <NavBar {...{ handleDashboard }}/>
+  return (
+    <div style={{ backgroundColor: primaryBG }}>
+      <NavBar {...{ handleDashboard, setIsTrader }}/>
       <DashBoard {...{ handleDashboard, isDashboardOpen, setMembership, membership }} />
-      <div className="App">
-        <Grid container spacing={2} justifyContent="center" alignContent="start">
-          {traders.map(trader => { return <TraderCard {...{ trader, membership, primaryBG, secondaryBG }} /> })}
-        </Grid>
-      </div>
+      {!isTrader && <div className="App"><Traders {...{ traders, membership, primaryBG, secondaryBG, setIsTrader, setSelectedTrader }} /></div>}
+      {isTrader && <Trader {...{ selectedTrader, membership }} />}
     </div>
   );
 }
