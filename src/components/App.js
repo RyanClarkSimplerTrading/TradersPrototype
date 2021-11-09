@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import traderMock from '../mock/traders';
 import DashBoard from './DashBoard';
 import NavBar from './NavBar';
-import Trader from './Traders/Trader';
+import Trader from './Trader/Trader';
 import Traders from './Traders/Traders';
 
 const  App = () => {

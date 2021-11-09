@@ -10,7 +10,13 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#0A2336'
+      main: '#0A2336',
+      tabs: {
+        backgroundColor: 'red'
+      },
+      inkBar: {
+        backgroundColor: 'yellow'
+      }
     },
     traderButton: {
       main: '#F69532'
