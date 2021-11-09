@@ -44,7 +44,7 @@ const Overview = ({
             </Grid>
             <Grid sm={1}>
                 <List sx={{ paddingTop: '5rem'}}>
-                    {socialMedia.map(media => {
+                    {socialMedia && socialMedia.map(media => {
                         const { name, link } = media;
                         if (name === 'YouTube') return <ListItemButton><YouTube button href={link} fontSize="large"/></ListItemButton>
                         if (name === 'Twitter') return <ListItem><Twitter href={link} fontSize="large"/></ListItem>

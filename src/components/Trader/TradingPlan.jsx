@@ -19,6 +19,7 @@ const TradingPlan = ({
     const { tradingPlan } = selectedTrader;
     const [ list, setList] = useState(defaultList)
     const [open, setOpen] = useState(false)
+    if(!tradingPlan) return <h1> No Trading Plan Yet</h1>
 
     const onChange = (selected) => {
         setOpen(true)

@@ -3,10 +3,11 @@ import { useState } from "react";
 import { Add , ArrowForward, ArrowDownward } from "@mui/icons-material";
 
 const ChartSetups = ({
-    selectedTrader: { chartSetups }
+    selectedTrader: { chartSetups = [] }
 }) => {
     const arrayOfFalse = new Array(chartSetups.length).fill(false)
     const [list, setList] = useState(arrayOfFalse)
+    if (!chartSetups) return <h1> No Charts Yet</h1>
 
     const updateList = (index) => {
         let newList = [...list]
@@ -25,7 +26,7 @@ const ChartSetups = ({
                         <Collapse in={list[index]} sx={{ width: "50%"}}>
                             <Grid container spacing={1} justifyContent="center" alignContent="center">
                                 {strat.images.map(img => {
-                                    return <img src={img}/>
+                                    return  <Grid item xs={12}><img src={img}/></Grid>
                                 })}
                                 <Grid item xs={6}>
                                     <Typography variant="body2">description:</Typography>
